@@ -110,7 +110,8 @@ mssg "Upgrade pip"
 /home/vagrant/anaconda/bin/pip install --upgrade pip # DEPRECATION: Python 3.5 reached the end of its life on September 13th, 2020.
 
 mssg "Set the timezone"
-echo 'Asia/Singapore' | sudo tee /etc/timezone
+echo 'America/Chicago' | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
-
+# when system is configured to read the RTC time in the local time zone
+timedatectl set-local-rtc 0
 mssg "Done!"
