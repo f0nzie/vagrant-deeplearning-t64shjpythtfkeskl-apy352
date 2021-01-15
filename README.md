@@ -82,3 +82,16 @@ There are several notebooks to test the deep learning packages:
 * Network: NAT
 * USB: off
 * Shared folder: 2
+
+
+## Codes machine name
+
+* `t64`: Ubuntu Trusty 64-bit
+* `sh`: shell script provisioning
+* `jpy`: Jupyter server
+* `rss`: RStudio Server
+* `th`: Theano
+* `tf`: TensorFlow
+* `ke`: Keras
+* `skl`: scikit-learn
+* -`apy`: Anaconda Python followed by version number

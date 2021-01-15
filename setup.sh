@@ -43,12 +43,20 @@ mssg "Installing pip ..."
 apt-fast -y install python-pip >/dev/null 2>&1
 
 ################################################
-mssg "Downloading & Installing Anaconda ..."
+# Repo for miniconda installers: http://repo.continuum.io/miniconda/
+# Anaconda3-2020.07-Linux-x86_64.sh 	550.1M 	2020-07-23 12:16:50 	1046c40a314ab2531e4c099741530ada
 # Anaconda3-2020.11-Linux-x86_64.sh 	528.8M 	2020-11-18 16:45:36 	4cd48ef23a075e8555a8b6d0a8c4bae2
 # Anaconda3-4.2.0-Linux-x86_64.sh   	455.9M 	2016-09-27 15:50:04 	4692f716c82deb9fa6b59d78f9f6e85c
-anaconda=Anaconda3-4.2.0-Linux-x86_64.sh
+# Anaconda3-4.4.0-Linux-x86_64.sh 	    499.0M 	2017-05-26 18:23:04 	50f19b935dae7361978a04d9c7c355cd
+mssg "Downloading & Installing Anaconda ..."
+# anaconda=Anaconda3-4.2.0-Linux-x86_64.sh   # original Anaconda3
+# anaconda=Miniconda3-py37_4.8.3-Linux-x86_64.sh    # Change to Miniconda3.5.7. Jupyter cannot be called from host browser
+# anaconda=Anaconda3-2020.11-Linux-x86_64.sh        # Jupyter cannot be called from host browser
+# anaconda=Anaconda3-4.4.0-Linux-x86_64.sh    # does not auto start Jupyter
+anaconda=Anaconda3-4.2.0-Linux-x86_64.sh    # auto starts Jupyter
 if [[ ! -f $anaconda ]]; then
     wget --quiet https://repo.continuum.io/archive/$anaconda
+    # wget --quiet https://repo.anaconda.com/miniconda/$anaconda
     chmod +x $anaconda
     ./$anaconda -b -p /home/vagrant/anaconda
     echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
@@ -70,19 +78,19 @@ apt-fast install -y python3-numpy python3-scipy python3-dev python3-pip python3-
 mssg "Upgrade pip"
 pip3 install --upgrade pip  # getting RuntimeError: Python 3.5 or later is required
 
-# use conda pip to install nose
-/home/vagrant/anaconda/bin/pip install nose
-/home/vagrant/anaconda/bin/pip install nose_parameterized
+# # use conda pip to install nose
+# /home/vagrant/anaconda/bin/pip install nose
+# /home/vagrant/anaconda/bin/pip install nose_parameterized
 
-mssg "Installing Theano"
-/home/vagrant/anaconda/bin/conda install "Theano==0.8.2" -y -q
+# mssg "Installing Theano"
+# /home/vagrant/anaconda/bin/conda install "Theano==0.8.2" -y -q
 
-mssg "Installing Tensorflow"
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl
-/home/vagrant/anaconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
+# mssg "Installing Tensorflow"
+# export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl
+# /home/vagrant/anaconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
 
-mssg "Installing Keras"
-/home/vagrant/anaconda/bin/conda install -c conda-forge keras=2.0.6
+# mssg "Installing Keras"
+# /home/vagrant/anaconda/bin/conda install -c conda-forge keras=2.0.6
 # mssg "Installing MXNet"
 # chown -R vagrant:vagrant /home/vagrant/anaconda
 # /home/vagrant/anaconda/bin/conda update -n base conda
