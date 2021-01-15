@@ -2,7 +2,7 @@ Deep Learning Virtual Machine
 ===============================
 This is a VirtualBox VM that is automatically generated using Vagrant.
 
-Machine Learning and Deep Learning packages installed are: Scikit-Learn, NLTK, [Keras](https://keras.io/), [TensorFlow](https://www.tensorflow.org/) and [Theano](http://deeplearning.net/software/theano/). A [Vagrant](https://www.vagrantup.com/) file is used to generate this VM, which runs on Ubuntu 14.04 (`trusty64`)
+Machine Learning and Deep Learning packages installed are: Scikit-Learn, NLTK, [Keras](https://keras.io/), [TensorFlow](https://www.tensorflow.org/) and [Theano](http://deeplearning.net/software/theano/). A [Vagrant](https://www.vagrantup.com/) file is used to generate this VM, which runs on Ubuntu 14.04 (`trusty64`).
 
 ### Getting Started
 
@@ -12,17 +12,25 @@ Machine Learning and Deep Learning packages installed are: Scikit-Learn, NLTK, [
 
 *   [Download and install Vagrant](http://www.vagrantup.com/downloads.html) 
 
+* Clone the virtual machine specs with:
+```
+git clone https://github.com/f0nzie/vagrant-deeplearning-t64shjpythtfkeskl-apy352.git
+```
+
 *   Change to the folder where this repo has been cloned and type on your local terminal:
 
     ```
     vagrant up
     ```
 
+* Browse to Jupyter with:  http://127.0.0.1:8100/. Try the different notebooks in there.
+
 *   To access the virtual machine console or terminal, type:
 
     ```
     vagrant ssh
     ```
+
 
 *   When finished, power off the virtual machine with:
 
@@ -95,3 +103,13 @@ There are several notebooks to test the deep learning packages:
 * `ke`: Keras
 * `skl`: scikit-learn
 * -`apy`: Anaconda Python followed by version number
+* Host name: `T64G40A8100`
+* VM name: `vagrant-T64G40DLSJ352A8100`
+* Short name: `T64G40DLSJ352A8100`
+
+
+
+## Notes
+
+*   There is only one version of Anaconda3 that works with the setting in the provisioning files, and that is `Anaconda3-4.2.0-Linux-x86_64.sh`. Changing it to `4.3.0` or `4.4.0` will not allow to auto start Jupyter.
+*   
